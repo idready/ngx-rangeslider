@@ -69,10 +69,10 @@ export class RangeSliderComponent implements ControlValueAccessor {
   rangeCache:number[];
   @Input() step: number;
   @Output() onRangeChange:EventEmitter<number[]>=new EventEmitter<number[]>();
-  @ViewChild('bar') bar: ElementRef;
-  @ViewChild('minSlider') minSlider: ElementRef;
-  @ViewChild('maxSlider') maxSlider: ElementRef;
-  @ViewChild('sliderHilight') sliderHilight: ElementRef;
+  @ViewChild('bar', {static: true}) bar: ElementRef;
+  @ViewChild('minSlider', {static: true}) minSlider: ElementRef;
+  @ViewChild('maxSlider', {static: true}) maxSlider: ElementRef;
+  @ViewChild('sliderHilight', {static: true}) sliderHilight: ElementRef;
   numWidth:number;
   @HostListener('window:resize', ['$event'])
   onResize(event) {
@@ -164,14 +164,14 @@ export class RangeSliderComponent implements ControlValueAccessor {
       this.intialMinMouseX = event.clientX;
   }
     
-    maxMouseDown(event:any) {
-      this.maxSliderClicked = true;
-      this.maxSelected = true;
-      this.minSliderClicked = false;
-      this.minSelected = false;
-      this.maxSliderIntialLeft = event.target.offsetLeft;
-      this.intialMaxMouseX = event.clientX;
-    }
+  maxMouseDown(event:any) {
+    this.maxSliderClicked = true;
+    this.maxSelected = true;
+    this.minSliderClicked = false;
+    this.minSelected = false;
+    this.maxSliderIntialLeft = event.target.offsetLeft;
+    this.intialMaxMouseX = event.clientX;
+  }
 
   touchMove(event: any) {
     let evt = event.changedTouches[0];

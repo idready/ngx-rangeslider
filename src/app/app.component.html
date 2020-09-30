@@ -161,7 +161,7 @@ rangeChanged(event:any)&#123;
           </ul>
           <div class="tab-content">
             <div id="HTML4" class="tab-pane fade in active">
-                <pre> &lt;form (ngSubmit)="onSubmit()" #dummyForm="ngForm" >
+                <pre> &lt;form (ngSubmit)="onSubmit()" #dummyForm="ng-form" >
                         &lt;div class="form-group">
                         &lt;label for="name">Range&lt;/label>
                         &lt;range-slider [min]="min" [max]="max"[step]="4" [(ngModel)]="dumyForm.range" (onRangeChange)="rangeChanged($event)" name="range" #rangef="ngModel" required >
